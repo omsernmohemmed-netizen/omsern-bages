@@ -4,36 +4,271 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>متجر مامتو - الرئيسية</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-body{font-family:'Segoe UI',Tahoma,sans-serif;background:#fff0f5;margin:0;padding:0;text-align:center}
-header{background:#e91e63;color:white;padding:15px 10px}
-nav{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;margin-top:10px}
-nav a{color:white;text-decoration:none;font-weight:bold;font-size:15px;padding:8px 12px;background:rgba(0,0,0,0.1);border-radius:8px}
-section{padding:60px 20px;max-width:1100px;margin:auto}
-h2{color:#e91e63;font-size:28px}
-.btn{display:inline-block;background:#25D366;color:white;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px;font-size:18px}
-footer{background:#e91e63;color:white;text-align:center;padding:15px;margin-top:30px}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Cairo', Tahoma, sans-serif;
+  background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+  color: white;
+  padding: 20px 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  animation: slideDown 0.6s ease-out;
+}
+
+nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+nav a:hover {
+  background: rgba(255,255,255,0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+section {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: auto;
+  flex-grow: 1;
+  animation: fadeIn 0.8s ease-out;
+}
+
+h2 {
+  color: #e91e63;
+  font-size: 42px;
+  margin-bottom: 20px;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+  font-size: 20px;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.price-highlight {
+  font-size: 24px;
+  color: #e91e63;
+  font-weight: bold;
+  margin: 15px 0;
+  background: rgba(233,30,99,0.1);
+  padding: 15px;
+  border-radius: 15px;
+  display: inline-block;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.feature {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  min-width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(233,30,99,0.2);
+}
+
+.feature-icon {
+  font-size: 40px;
+  color: #e91e63;
+  margin-bottom: 10px;
+}
+
+.feature-text {
+  color: #333;
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #25D366 0%, #128c7e 100%);
+  color: white;
+  padding: 16px 40px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(37,211,102,0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(37,211,102,0.5);
+  background: linear-gradient(135deg, #128c7e 0%, #25D366 100%);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
+
+footer {
+  background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: auto;
+  box-shadow: 0 -8px 20px rgba(0,0,0,0.1);
+}
+
+footer p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.phone-link {
+  color: #25D366;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.phone-link:hover {
+  text-decoration: underline;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 32px;
+  }
+  
+  .features {
+    gap: 15px;
+  }
+  
+  .feature {
+    min-width: 150px;
+  }
+  
+  nav a {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
 </style>
 </head>
 <body>
 <header>
-  <div style="font-size:24px;font-weight:bold">👜 متجر مامتو للشنط</div>
+  <div class="logo">👜 متجر مامتو للشنط</div>
   <nav>
-    <a href="index.html">الرئيسية</a>
-    <a href="about.html">حول المتجر</a>
-    <a href="shop.html">الشنط</a>
-    <a href="payment.html">الدفع</a>
-    <a href="account.html">حسابي</a>
-    <a href="contact.html">استفسار</a>
+    <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> حول المتجر</a>
+    <a href="shop.html"><i class="fas fa-shopping-bag"></i> الشنط</a>
+    <a href="payment.html"><i class="fas fa-credit-card"></i> الدفع</a>
+    <a href="account.html"><i class="fas fa-user"></i> حسابي</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> استفسار</a>
   </nav>
 </header>
 
 <section id="home">
-  <h2>مرحبا بكم في متجر مامتو</h2>
-  <p style="font-size:18px;color:#555">افخم الشنط النسائية باسعار من 20,000 الى 40,000 جنيه</p>
-  <a href="shop.html" class="btn">شاهدي الشنط</a>
+  <h2>🌟 مرحبا بكِ في متجر مامتو</h2>
+  
+  <p class="subtitle">متخصصة في أفخم وأجمل الشنط النسائية بأسعار تنافسية</p>
+  
+  <div class="price-highlight">
+    💰 من 20,000 إلى 40,000 جنيه
+  </div>
+
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">✨</div>
+      <div class="feature-text">جودة عالية</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🚚</div>
+      <div class="feature-text">توصيل سريع</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">💳</div>
+      <div class="feature-text">دفع آمن</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">⭐</div>
+      <div class="feature-text">ضمان الرضا</div>
+    </div>
+  </div>
+
+  <a href="shop.html" class="btn">🛍️ شاهدي مجموعتنا الآن</a>
 </section>
 
-<footer>© 2026 متجر مامتو | 099094790</footer>
+<footer>
+  <p>&copy; 2026 متجر مامتو للشنط</p>
+  <p>📞 اتصلي بنا: <a href="tel:0990947900" class="phone-link">099094790</a></p>
+  <p style="margin-top: 10px; font-size: 12px; opacity: 0.9;">جميع الحقوق محفوظة © 2026</p>
+</footer>
 </body>
 </html>
