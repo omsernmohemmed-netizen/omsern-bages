@@ -7,10 +7,21 @@
 body{font-family:'Segoe UI',Tahoma,sans-serif;background:#fff0f5;margin:0;padding:0;text-align:center}
 header{background:#e91e63;color:white;padding:15px 10px}
 nav{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;margin-top:10px}
-nav a{color:white;text-decoration:none;font-weight:bold;font-size:15px;padding:8px 12px;background:rgba(0,0,0,0.1);border-radius:8px}
-section{padding:60px 20px;max-width:800px;margin:auto;text-align:right}
-h2{color:#e91e63;font-size:28px;text-align:center}
-.box{background:white;border-radius:15px;padding:25px;box-shadow:0 4px 10px rgba(0,0,0,0.1);font-size:16px;line-height:1.8}
+nav a{color:white;text-decoration:none;font-weight:bold;font-size:15px;padding:8px 12px;background:rgba(0,0,0,0.1);border-radius:8px;transition:0.3s}
+nav a:hover{background:rgba(0,0,0,0.3)}
+section{padding:60px 20px;max-width:1000px;margin:auto;text-align:right}
+h2{color:#e91e63;font-size:28px;text-align:center;margin-top:40px;border-bottom:3px solid #e91e63;padding-bottom:10px}
+h3{color:#e91e63;font-size:20px}
+.box{background:white;border-radius:15px;padding:25px;box-shadow:0 4px 10px rgba(0,0,0,0.1);font-size:16px;line-height:1.8;margin:20px 0}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin:20px 0}
+.service-card{background:white;border-radius:15px;padding:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1);border-top:4px solid #e91e63}
+.service-card h3{text-align:center;margin-top:0}
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin:20px 0}
+.testimonial-card{background:#fff9fc;border-radius:15px;padding:20px;border-right:5px solid #e91e63;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+.testimonial-card p{margin:10px 0}
+.stars{color:#ffc107;font-size:18px}
+.contact-info{background:#ffe0eb;border-radius:15px;padding:25px;margin:20px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
+.contact-item{background:white;padding:15px;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
 footer{background:#e91e63;color:white;text-align:center;padding:15px;margin-top:30px}
 </style>
 </head>
@@ -28,14 +39,112 @@ footer{background:#e91e63;color:white;text-align:center;padding:15px;margin-top:
 </header>
 
 <section>
-  <h2>حول المتجر</h2>
+  <h2>حول متجر مامتو</h2>
   <div class="box">
     <p><b>متجر مامتو</b> متخصص في الشنط النسائية المستوردة والمحلية بجودة عالية.</p>
-    <p>هدفنا: نوفر ليك ستايل راقي وسعر مناسب مع توصيل سريع داخل امدرمان والخرطوم.</p>
-    <p>بدينا 2026 وكل الشنط عليها ضمان شهر ضد عيوب التصنيع.</p>
+    <p><b>هدفنا:</b> نوفر ليك ستايل راقي وسعر مناسب مع توصيل سريع داخل امدرمان والخرطوم.</p>
+    <p><b>التزامنا:</b> كل الشنط عليها ضمان شهر ضد عيوب التصنيع، وكل المنتجات اصلية ومختارة بعناية.</p>
+    <p style="font-size:18px;color:#e91e63"><b>🎯 بدينا سنة 2026 بحلم واحد: توفير أفضل الشنط بأسعار معقولة!</b></p>
   </div>
+
+  <h2>خدماتنا</h2>
+  <div class="services">
+    <div class="service-card">
+      <h3>📦 توصيل سريع</h3>
+      <p>توصيل مجاني داخل الخرطوم وامدرمان في 24-48 ساعة. نضمن وصول منتجاتك بأمان وسرعة.</p>
+    </div>
+    <div class="service-card">
+      <h3>💳 طرق دفع آمنة</h3>
+      <p>ندعم الدفع عند الاستلام والتحويل البنكي والمحافظ الرقمية لسهولة عمليتك.</p>
+    </div>
+    <div class="service-card">
+      <h3>🛡️ ضمان الجودة</h3>
+      <p>كل منتج له ضمان شهر كامل ضد عيوب التصنيع. راحتك هي أولويتنا.</p>
+    </div>
+    <div class="service-card">
+      <h3>👥 دعم عملاء</h3>
+      <p>فريق متخصص مستعد لمساعدتك 24/7. أي استفسار أو مشكلة نحن هنا لك.</p>
+    </div>
+    <div class="service-card">
+      <h3>✨ منتجات أصلية</h3>
+      <p>كل الشنط مختارة بعناية من موردين موثوقين، وكلها 100% أصلية وعالية الجودة.</p>
+    </div>
+    <div class="service-card">
+      <h3>🎁 عروض مميزة</h3>
+      <p>تابع صفحتنا للحصول على عروض حصرية وخصومات على منتجاتك المفضلة.</p>
+    </div>
+  </div>
+
+  <h2>لماذا تختار مامتو؟</h2>
+  <div class="box">
+    <ul style="text-align:right;font-size:17px">
+      <li><b>✅ جودة عالية:</b> كل الشنط مختارة بعناية من أفضل الموردين</li>
+      <li><b>✅ أسعار منافسة:</b> نقدم أفضل الأسعار دون التضحية بالجودة</li>
+      <li><b>✅ توصيل سريع:</b> نوصل طلبك في أسرع وقت ممكن</li>
+      <li><b>✅ ضمان شامل:</b> ضمان شهر على كل المنتجات</li>
+      <li><b>✅ دعم ممتاز:</b> فريقنا جاهز للرد على استفساراتك في أي وقت</li>
+      <li><b>✅ تنوع كبير:</b> مئات النماذج والألوان لتختاري ما يناسبك</li>
+    </ul>
+  </div>
+
+  <h2>شهادات عملائنا</h2>
+  <div class="testimonials">
+    <div class="testimonial-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p><b>فاطمة محمد</b></p>
+      <p>"متجر رائع جداً! الشنطة جودتها عالية جداً والتوصيل كان سريع جداً. شكراً مامتو 💕"</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p><b>نور علي</b></p>
+      <p>"السعر مناسب جداً والمنتج أصلي 100%. توصيتها لكل صديقاتي بمتجر مامتو!"</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p><b>سارة الحسن</b></p>
+      <p>"خدمة العملاء ممتازة جداً وردوا على استفساراتي بسرعة. شنطتي وصلت بأمان تام."</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p><b>ليلى خليفة</b></p>
+      <p>"أول مرة أطلب من هسع وتمام التمام! الجودة والسعر والخدمة كلها 10/10 🌟"</p>
+    </div>
+  </div>
+
+  <h2>معلومات التواصل</h2>
+  <div class="contact-info">
+    <div class="contact-item">
+      <h3>📱 الهاتف</h3>
+      <p dir="ltr" style="text-align:center">+249 123 456 789</p>
+    </div>
+    <div class="contact-item">
+      <h3>💬 واتس اب</h3>
+      <p dir="ltr" style="text-align:center">+249 123 456 789</p>
+    </div>
+    <div class="contact-item">
+      <h3>📧 الايميل</h3>
+      <p style="text-align:center">info@mamto.sd</p>
+    </div>
+    <div class="contact-item">
+      <h3>📍 الموقع</h3>
+      <p>الخرطوم - امدرمان</p>
+    </div>
+  </div>
+
+  <h2>سياستنا</h2>
+  <div class="box">
+    <h3>🔄 سياسة الاسترجاع</h3>
+    <p>إذا لم تكوني راضية عن المنتج، يمكنك استرجاعه خلال 7 أيام من الاستلام بدون رسوم.</p>
+    
+    <h3>🚚 سياسة التوصيل</h3>
+    <p>توصيل مجاني لكل طلب داخل الخرطوم وامدرمان. التوصيل خارج المدينة برسم إضافي.</p>
+    
+    <h3>💯 ضمان الجودة</h3>
+    <p>كل المنتجات لها ضمان شهر كامل ضد عيوب التصنيع والخيوط المتطايرة.</p>
+  </div>
+
 </section>
 
-<footer>© 2026 متجر مامتو</footer>
+<footer>© 2026 متجر مامتو للشنط - جودة وأمان وأسعار مناسبة 💕</footer>
 </body>
 </html>
