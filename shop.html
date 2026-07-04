@@ -4,35 +4,50 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>الشنط - متجر مامتو</title>
 <style>
-body{font-family:'Segoe UI',Tahoma,sans-serif;background:#fff0f5;margin:0;padding:0;text-align:center}
-header{background:#e91e63;color:white;padding:15px 10px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+body{font-family:'Segoe UI',Tahoma,sans-serif;background:linear-gradient(135deg, #fff0f5 0%, #ffe4e9 100%);margin:0;padding:0;text-align:center}
+header{background:linear-gradient(90deg, #e91e63 0%, #c2185b 100%);color:white;padding:15px 10px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;box-shadow:0 4px 15px rgba(233, 30, 99, 0.3)}
 nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-nav a{color:white;text-decoration:none;font-weight:bold;font-size:14px;padding:6px 10px;background:rgba(0,0,0,0.1);border-radius:8px}
-#cart-btn{background:white;color:#e91e63;border:none;border-radius:10px;padding:8px 12px;font-weight:bold;cursor:pointer;margin-top:10px}
-section{padding:40px 20px;max-width:1100px;margin:auto}
-h2{color:#e91e63;font-size:28px;margin-bottom:20px}
-.container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;text-align:right}
-.card{background:white;border-radius:15px;box-shadow:0 4px 10px rgba(0,0,0,0.1);padding:15px}
-.card img{width:100%;border-radius:10px;height:220px;object-fit:cover}
-.price{font-size:20px;font-weight:bold;color:#000;margin:5px 0}
-.qty{color:#333;font-size:14px}
-.btn{display:inline-block;background:#25D366;color:white;padding:10px 15px;border-radius:10px;text-decoration:none;font-weight:bold;margin:5px 0;cursor:pointer;border:none;width:100%}
-.btn-del{background:#f44336}
-footer{background:#e91e63;color:white;text-align:center;padding:15px;margin-top:30px}
-#cart-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:20}
-.cart-content{background:white;max-width:500px;margin:50px auto;padding:20px;border-radius:15px;max-height:80vh;overflow-y:auto;text-align:right}
+nav a{color:white;text-decoration:none;font-weight:bold;font-size:14px;padding:6px 10px;background:rgba(255,255,255,0.2);border-radius:8px;transition:all 0.3s}
+nav a:hover{background:rgba(255,255,255,0.4);transform:scale(1.05)}
+#cart-btn{background:white;color:#e91e63;border:none;border-radius:10px;padding:8px 12px;font-weight:bold;cursor:pointer;margin-top:10px;transition:all 0.3s;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+#cart-btn:hover{transform:scale(1.1);box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+section{padding:40px 20px;max-width:1200px;margin:auto}
+h2{color:#e91e63;font-size:32px;margin-bottom:10px;text-shadow:2px 2px 4px rgba(0,0,0,0.1)}
+.subtitle{color:#666;font-size:16px;margin-bottom:30px}
+.container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;text-align:right}
+.card{background:white;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,0.1);padding:15px;transition:all 0.3s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle, rgba(233, 30, 99, 0.1) 0%, transparent 70%);opacity:0;transition:opacity 0.3s}
+.card:hover{transform:translateY(-10px);box-shadow:0 8px 25px rgba(233, 30, 99, 0.2)}
+.card:hover::before{opacity:1}
+.card-badge{position:absolute;top:10px;left:10px;background:#ff6b9d;color:white;padding:5px 10px;border-radius:20px;font-size:12px;font-weight:bold;z-index:10}
+.card img{width:100%;border-radius:10px;height:220px;object-fit:cover;transition:transform 0.3s}
+.card:hover img{transform:scale(1.05)}
+.card h3{color:#333;font-size:18px;margin:10px 0 5px 0}
+.card p{color:#666;font-size:14px;margin:5px 0}
+.price{font-size:22px;font-weight:bold;color:#e91e63;margin:10px 0;text-shadow:1px 1px 2px rgba(0,0,0,0.05)}
+.qty{color:#666;font-size:13px;margin:8px 0}
+.qty-low{color:#ff6b9d;font-weight:bold}
+.btn{display:inline-block;background:linear-gradient(90deg, #25D366 0%, #1abc9c 100%);color:white;padding:10px 15px;border-radius:10px;text-decoration:none;font-weight:bold;margin:5px 0;cursor:pointer;border:none;width:100%;transition:all 0.3s}
+.btn:hover{transform:scale(1.02);box-shadow:0 4px 12px rgba(37, 211, 102, 0.3)}
+.btn-del{background:linear-gradient(90deg, #f44336 0%, #e53935 100%)}
+.btn-del:hover{box-shadow:0 4px 12px rgba(244, 67, 54, 0.3)}
+footer{background:linear-gradient(90deg, #e91e63 0%, #c2185b 100%);color:white;text-align:center;padding:20px;margin-top:40px;box-shadow:0 -4px 15px rgba(233, 30, 99, 0.2)}
+#cart-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:20;animation:fadeIn 0.3s}
+@keyframes fadeIn{from{opacity:0} to{opacity:1}}
+.cart-content{background:white;max-width:500px;margin:50px auto;padding:20px;border-radius:15px;max-height:80vh;overflow-y:auto;text-align:right;box-shadow:0 8px 32px rgba(0,0,0,0.2)}
 .cart-item{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee;padding:10px 0}
+.cart-total{background:#f0f0f0;padding:15px;border-radius:10px;margin:15px 0;font-size:18px}
 </style>
 <script>
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
-let stock = {p1:5, p2:8, p3:3}; // هنا الكمية. نقصيها يدوي
+let stock = {p1:5, p2:8, p3:3, p4:6, p5:4, p6:7}; // الكمية المتوفرة
 
 function addToCart(id,name,price){
   if(stock[id]<=0){alert('الكمية خلصت');return;}
   cart.push({id,name,price});
   localStorage.setItem('cart',JSON.stringify(cart));
   updateCartCount();
-  alert('تمت الاضافة للسلة ✅');
+  alert('✅ تمت الاضافة للسلة');
 }
 function removeFromCart(index){
   cart.splice(index,1);
@@ -44,23 +59,23 @@ function showCart(){
   let html = '';
   let total = 0;
   cart.forEach((item,i)=>{
-    html += `<div class="cart-item"><div>${item.name}<br><b>${item.price}</b></div><button class="btn-del btn" onclick="removeFromCart(${i})">حذف</button></div>`;
+    html += `<div class="cart-item"><div>${item.name}<br><b style="color:#e91e63">${item.price}</b></div><button class="btn-del btn" onclick="removeFromCart(${i})">حذف</button></div>`;
     total += parseInt(item.price.replace(/[^0-9]/g,''));
   });
-  document.getElementById('cart-items').innerHTML = html || '<p>السلة فاضية</p>';
-  document.getElementById('cart-total').innerText = 'الاجمالي: ' + total.toLocaleString() + ' جنيه';
+  document.getElementById('cart-items').innerHTML = html || '<p style="color:#999">السلة فاضية</p>';
+  document.getElementById('cart-total').innerHTML = '<div class="cart-total">الاجمالي: <br><span style="font-size:24px;color:#e91e63">' + total.toLocaleString() + ' جنيه</span></div>';
 }
 function closeCart(){document.getElementById('cart-modal').style.display='none';}
 function checkout(){
   if(cart.length==0){alert('السلة فاضية');return;}
-  let msg = 'سلام عليكم، عايزة اطلب:\n';
-  cart.forEach(item=>{msg += `- ${item.name}\n`; stock[item.id]--; }); // هنا بنقص الكمية
-  msg += '\n' + document.getElementById('cart-total').innerText;
+  let msg = 'سلام عليكم، عايزة اطلب:\n\n';
+  cart.forEach(item=>{msg += `✓ ${item.name} - ${item.price}\n`; stock[item.id]--; });
+  msg += '\n' + document.getElementById('cart-total').innerText.replace(/<[^>]*>/g, '');
   localStorage.setItem('cart',JSON.stringify([]));
   cart=[];
   updateCartCount();
   closeCart();
-  alert('تم الشراء! الكمية نقصت. كملي الطلب واتساب');
+  alert('✅ تم الشراء! تم إرسال طلبك على واتساب');
   window.open('https://wa.me/2499094790?text='+encodeURIComponent(msg));
 }
 function updateCartCount(){
@@ -71,7 +86,7 @@ window.onload=updateCartCount;
 </head>
 <body>
 <header>
-  <div style="font-size:22px;font-weight:bold">👜 مامتو</div>
+  <div style="font-size:24px;font-weight:bold">👜 مامتو</div>
   <nav>
     <a href="index.html">الرئيسية</a>
     <a href="about.html">حول المتجر</a>
@@ -80,34 +95,76 @@ window.onload=updateCartCount;
     <a href="account.html">حسابي</a>
     <a href="contact.html">استفسار</a>
   </nav>
-  <button id="cart-btn" onclick="showCart()">🛒 السلة <span id="cart-count">0</span></button>
+  <button id="cart-btn" onclick="showCart()">🛒 السلة <span id="cart-count" style="background:#e91e63;color:white;padding:2px 6px;border-radius:50%;margin-right:5px">0</span></button>
 </header>
 
 <section>
-  <h2>الشنط المتوفرة</h2>
+  <h2>✨ الشنط المتوفرة</h2>
+  <p class="subtitle">اختاري ما يناسبك من مجموعتنا الجديدة</p>
   <div class="container">
+    <!-- المنتج 1 -->
     <div class="card">
+      <div class="card-badge">⭐ الأفضل</div>
       <img src="https://images.unsplash.com/photo-1584917865442-7d826a6e0113?w=400">
-      <h3>شنطة جلد اسود فخمة</h3><p>عملية وكبيرة</p>
+      <h3>شنطة جلد اسود فخمة</h3>
+      <p>عملية وكبيرة - جودة عالية</p>
       <div class="price">40,000 جنيه</div>
-      <div class="qty">متوفر: <script>document.write(stock.p1)</script> قطع</div>
-      <button class="btn" onclick="addToCart('p1','شنطة جلد اسود فخمة','40,000 جنيه')">+ اضافة للسلة</button>
+      <div class="qty">متوفر: <span style="color:#25D366;font-weight:bold"><script>document.write(stock.p1)</script> قطع</span></div>
+      <button class="btn" onclick="addToCart('p1','شنطة جلد اسود فخمة','40,000 جنيه')">➕ اضافة للسلة</button>
     </div>
 
+    <!-- المنتج 2 -->
     <div class="card">
+      <div class="card-badge">🔥 جديد</div>
       <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400">
-      <h3>شنطة كتف بني كلاسيك</h3><p>ستايل راقي</p>
+      <h3>شنطة كتف بني كلاسيك</h3>
+      <p>ستايل راقي وأنيق</p>
       <div class="price">28,000 جنيه</div>
-      <div class="qty">متوفر: <script>document.write(stock.p2)</script> قطع</div>
-      <button class="btn" onclick="addToCart('p2','شنطة كتف بني كلاسيك','28,000 جنيه')">+ اضافة للسلة</button>
+      <div class="qty">متوفر: <span style="color:#25D366;font-weight:bold"><script>document.write(stock.p2)</script> قطع</span></div>
+      <button class="btn" onclick="addToCart('p2','شنطة كتف بني كلاسيك','28,000 جنيه')">➕ اضافة للسلة</button>
     </div>
 
+    <!-- المنتج 3 -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400">
-      <h3>شنطة ظهر وردي كيوت</h3><p>شبابية وعملية</p>
+      <h3>شنطة ظهر وردي كيوت</h3>
+      <p>شبابية وعملية جداً</p>
       <div class="price">22,000 جنيه</div>
-      <div class="qty">متوفر: <script>document.write(stock.p3)</script> قطع</div>
-      <button class="btn" onclick="addToCart('p3','شنطة ظهر وردي كيوت','22,000 جنيه')">+ اضافة للسلة</button>
+      <div class="qty">متوفر: <span style="color:#25D366;font-weight:bold"><script>document.write(stock.p3)</script> قطع</span></div>
+      <button class="btn" onclick="addToCart('p3','شنطة ظهر وردي كيوت','22,000 جنيه')">➕ اضافة للسلة</button>
+    </div>
+
+    <!-- المنتج 4 جديد -->
+    <div class="card">
+      <div class="card-badge">💎 فاخر</div>
+      <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400">
+      <h3>شنطة يد ذهبي براق</h3>
+      <p>لمعة ذهبية رائعة - للحفلات</p>
+      <div class="price">35,000 جنيه</div>
+      <div class="qty">متوفر: <span style="color:#25D366;font-weight:bold"><script>document.write(stock.p4)</script> قطع</span></div>
+      <button class="btn" onclick="addToCart('p4','شنطة يد ذهبي براق','35,000 جنيه')">➕ اضافة للسلة</button>
+    </div>
+
+    <!-- المنتج 5 جديد -->
+    <div class="card">
+      <div class="card-badge">🎀 شيك</div>
+      <img src="https://images.unsplash.com/photo-1591860227602-ba14c362b621?w=400">
+      <h3>شنطة قماش كريم ناعم</h3>
+      <p>راحة وأناقة - للاستخدام اليومي</p>
+      <div class="price">18,000 جنيه</div>
+      <div class="qty">متوفر: <span style="color:#25D366;font-weight:bold"><script>document.write(stock.p5)</script> قطع</span></div>
+      <button class="btn" onclick="addToCart('p5','شنطة قماش كريم ناعم','18,000 جنيه')">➕ اضافة للسلة</button>
+    </div>
+
+    <!-- المنتج 6 جديد -->
+    <div class="card">
+      <div class="card-badge">❤️ محبوبة</div>
+      <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400">
+      <h3>شنطة جلد أحمر مثيرة</h3>
+      <p>لون جريء وساحر - للمناسبات</p>
+      <div class="price">32,000 جنيه</div>
+      <div class="qty">متوفر: <span style="color:#25D366;font-weight:bold"><script>document.write(stock.p6)</script> قطع</span></div>
+      <button class="btn" onclick="addToCart('p6','شنطة جلد أحمر مثيرة','32,000 جنيه')">➕ اضافة للسلة</button>
     </div>
   </div>
 </section>
@@ -115,14 +172,14 @@ window.onload=updateCartCount;
 <!-- نافذة السلة -->
 <div id="cart-modal">
   <div class="cart-content">
-    <h2>سلة المشتريات</h2>
+    <h2 style="color:#e91e63">🛒 سلة المشتريات</h2>
     <div id="cart-items"></div>
-    <h3 id="cart-total"></h3>
-    <button class="btn" onclick="checkout()">تم الشراء</button>
-    <button class="btn-del btn" onclick="closeCart()">اغلاق</button>
+    <h3 id="cart-total" style="color:#e91e63"></h3>
+    <button class="btn" onclick="checkout()">✅ تم الشراء</button>
+    <button class="btn-del btn" onclick="closeCart()">❌ اغلاق</button>
   </div>
 </div>
 
-<footer>© 2026 متجر مامتو</footer>
+<footer>© 2026 متجر مامتو | جودة عالية وأسعار مميزة 💖</footer>
 </body>
 </html>
